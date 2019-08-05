@@ -41,3 +41,12 @@ class ChildElement:
               i = i+1
               answer = input('end of ChildElement.setvalue at level ' + str(self.level) + '\n add another child? y/n \n')
           return self.children
+      elif self.valueType == "array":
+          newArray = []
+          answer = input('Add element to array?')
+          while answer == "y":
+              print('Adding new value to array\n')
+              element = ArrayElement()
+
+              answer = input('Add another element to array?')
+          self.children = newArray;

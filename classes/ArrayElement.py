@@ -1,10 +1,11 @@
 class ArrayElement:
-    def __init__(self, level, type):
+    def __init__(self):
         pass
 
     level = None
     type = None
     value = None
+    valueType = None
 
     def setArrayItemValue(self):
         if self.type == "string":
@@ -16,3 +17,6 @@ class ArrayElement:
 
     def generateChild(self):
         return None
+
+    def setArrayItemValueType(self, valueType):
+        pass
