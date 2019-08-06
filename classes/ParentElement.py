@@ -20,10 +20,11 @@ class ParentElement:
 		elif self.valueType == "object":
 			children = []
 			answer = input('Add child to parent element? y/n\n')
+			i = 0
 		while answer == "y":
-			print('adding child at level: ' + str(self.level+1))
+			print('Adding child #' + str(i) + ' at level: ' + str(self.level+1))
 			child = ChildElement()
 			child.setProperties(int(self.level+1))
 			children.append(child)
-			answer = input('end of ParentElement.addChildren\n Add another child? y/n\n')
+			answer = input('Add another child to parent element? y/n\n')
 		self.children = children

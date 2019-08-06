@@ -21,23 +21,34 @@ class ChildElement:
 		self.setValue()
 
 	def setKey(self):
-		self.value = input('Please enter the element key\n')
+		self.key = input('Please enter the element key\n')
 
 	def setValueType(self):
 		self.valueType = input('Please enter object, array, or string for ChildElement.valueType at level ' + str(self.level) + "\n")
 
 	def setValue(self):
 		if self.valueType == "string":
-			self.value = input(self.key+'Please enter a string value\n')
+			self.value = input('Please enter a string value for attribute: ' + self.key + '\n')
 		elif self.valueType == "object":
 			answer = input(self.key+': Add child to object? y/n \n')
+			i = 0
 			while answer == "y":
-				print("Generating new child object " + str(i+1) + " on level: " + str(self.level+1))
+				print('\n'+self.key+':\n')
+				for i in range(len(self.children)):
+					if hasattr(self.value[i], "key"):
+						print('Key: ' + str(self.value[i].key) + ' | Value: ' + str(self.value[i].value) )
+				print("\n-------------------------------------\nGenerating new child object " + str(i+1) + " on level: " + str(self.level+1) + '\n')
 				child = ChildElement() #instantiates new childElement()
 				child.setProperties(self.level+1)
 				self.children.append(child)
-				answer = input('end of ChildElement.setvalue at level ' + str(self.level) + '\n add another child? y/n \n')
+				print('Child #' + str(i) + 'added to Attribute: ' + self.key) 
+				i = i + 1
+				self.value = self.children
+				answer = input('Add another child? y/n \n')
+				print('-------------------------------------')
 			self.value = self.children
+			print('There are ' + str(len(self.value)) + ' children in attribute: ' + self.key + '\n')
+			
 		elif self.valueType == "array":
 			newArray = []
 			answer = input(self.key+'Add element to array?')
