@@ -28,9 +28,9 @@ class ChildElement:
 
 	def setValue(self):
 		if self.valueType == "string":
-			self.value = input('Please enter a string value\n')
+			self.value = input(self.key+'Please enter a string value\n')
 		elif self.valueType == "object":
-			answer = input('childElement.setValue Add child to object? y/n \n')
+			answer = input(self.key+': Add child to object? y/n \n')
 			while answer == "y":
 				print("Generating new child object " + str(i+1) + " on level: " + str(self.level+1))
 				child = ChildElement() #instantiates new childElement()
@@ -40,7 +40,7 @@ class ChildElement:
 			self.value = self.children
 		elif self.valueType == "array":
 			newArray = []
-			answer = input('Add element to array?')
+			answer = input(self.key+'Add element to array?')
 			while answer == "y":
 				from classes.ArrayElement import ArrayElement
 				element = ArrayElement() #instantiates new ArrayElement()
