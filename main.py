@@ -1,7 +1,9 @@
 from classes.ParentElement import ParentElement
 
 parent = ParentElement()
+
 parent.setType()
+parent.setLevel()
 parent.addChildren()
 
 for i in range(len(parent.children)):
