@@ -2,9 +2,12 @@ from classes.ParentElement import ParentElement
 
 parent = ParentElement()
 
+print('---------1---------------')
 parent.setType()
 parent.setLevel()
+print('---------1---------------\n')
 parent.addChildren()
+
 
 for i in range(len(parent.children)):
     if type(parent.children[i].value) == list:
